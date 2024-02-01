@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+html{
+	font-size : 10px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color : inherit;
+}
+
+@font-face{
+	font-family: abster;
+	src:url(../font/abster-webfont.woff) format('woff');
+}
+
+*{
+	margin :0;
+	padding : 0;
+	box-sizing:border-box;
+}
+
+ body{
+	background-color: rgb(246, 244, 238 );
+}
+
+
+
+/*게시판 목록*/
+
+.board_wrap {
+	
+	width : 1000px;
+	margin : 100px auto;
+	color: #655345 ;
+	font-family: 'Noto Sans KR';
+	margin-bottom: 100px:
+}
+
+.board_title{
+	margin-bottom: 30px; /* 1:1 상담 밑에 30px 적용 됨 (목록/수정) 부분*/
+}
+
+.board_title strong{
+	font-size: 3rem; 
+	font-family: 'Noto Sans KR';
+}
+
+.board_title p {
+	margin-top: 5px;
+	font-size : 1.4rem;
+}
+
+
+/*게시판 목록 버튼*/
+
+.bt_wrap {
+	margin-top: 30px;
+	font-size : 0; /*목록과 수정 사이 여백 사라지게, 정확한 수치로 적용하기 위해 폰트 사이즈 0을 인라인 블럭의 부모에 적용*/
+	text-align : center; /*a태그와 그 안의 내용도 가운데 정렬(상속받기 때문에 )*/	
+}
+
+.bt_wrap a{
+	display: inline-block; /*인라인 요소 추가*/
+	min-width: 80px; /*최소 가로 길이 : 80px*/
+	margin-left: 10px;
+	padding : 10px; /*상하 좌우 여백 10px*/
+	border : 1px #655345; /*테두리 검정*/
+	border-radius: 2px; /*2px 둥그렇게*/
+	font-size:1.4rem;
+}
+
+.bt_wrap a:first-child { /*첫번째 a태그 */
+	margin-left : 0; /*첫번째 a태그 왼쪽으로 멀어지지 않도록 0으로 설정*/
+}
+
+.bt_wrap a.on{/* 강조되었을 때 설정*/
+	background : #655345;
+	color : white;
+}
+ 
+ 
+ 
+ 
+
+/*게시판 목록*/
+
+.board_list{ /*카테고리 상단 줄*/
+	width: 100%; /*부모 영향 받아서 끝까지 안감*/
+	border-top : 2px solid #655345;
+	color: black;
+}
+
+.board_list > div{
+	border-bottom: 1px solid grey;
+	font-size: 0;
+}
+
+.board_list > div.top{
+	border-color: 1px solid 999;
+}
+
+.board_list > div:last-child {
+	border-bottom: 1px solid #655345;
+}
+
+.board_list > div> div {
+	display: inline-block; /*한 행의 글씨들을 가로로 정렬*/
+	padding : 15px 0;
+	text-align: center; /*게시글 글씨의 부모 속성이라 다같이 가운데 정렬 적용*/
+	font-size: 1.4rem; 
+}
+
+.board_list > div.top > div { /*top에 있는 div*/
+	font-weight: 600;
+}
+
+.board_list .clNo{
+	width:10%
+}
+
+.board_list .clTitle{
+	width:50%;
+	text-align: center; /*게시글 제목만 왼쪽 정렬*/
+}
+
+.board_list .top .clTitle {
+	text-align: center; /*카테고리 제목만 가운데 정렬*/
+}
+
+.board_list .clId{
+	width:11%
+}
+
+.board_list .clCategory{
+	width:11%
+}
+
+.board_list .clLevel{
+	width:7%
+}
+
+.board_list .cl{
+	width:11%
+}
+
+

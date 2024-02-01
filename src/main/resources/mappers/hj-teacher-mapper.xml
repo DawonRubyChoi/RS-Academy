@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="hjTeacherMapper">
+
+   <select id="getListCount" resultType="_int">
+      SELECT COUNT(*)
+      FROM NOTICE_BOARD
+      WHERE NOTICE_STATUS = 'Y'
+   </select>
+
+   <!-- 전체 게시글 정보 리스트로 가져오기 -->
+   <select id="selectNoticeList" resultType="Notice">
+      SELECT *
+      FROM NOTICE_BOARD JOIN
+      MEMBER ON(NOTICE_ADMIN_NO = MB_ID)
+      WHERE NOTICE_STATUS = 'Y'
+      ORDER BY NOTICE_NO DESC
+   </select>
+   
+   <insert id="insertNotice">
+      INSERT INTO NOTICE_BOARD
+      VALUES (SEQ_NOTICE_NO.NEXTVAL, #{noticeTitle}, DEFAULT, #{noticeContent}, #{noticeAdminNo}, DEFAULT, DEFAULT)
+   </insert>
+
+   <select id="selectNoticeBoard" resultType="Notice">
+      SELECT *
+      FROM NOTICE_BOARD
+         JOIN MEMBER ON(NOTICE_ADMIN_NO = MB_ID)
+      WHERE NOTICE_NO = #{nId}
+   </select>
+   
+   <update id="updateNoticeCount">
+      UPDATE NOTICE_BOARD
+      SET NOTICE_NUM = NOTICE_NUM + 1
+      WHERE NOTICE_NO = #{nId}
+   </update>
+   
+   <update id="updateNotice">
+      UPDATE NOTICE_BOARD
+      SET NOTICE_TITLE = #{noticeTitle}, NOTICE_DATE = SYSDATE, NOTICE_CONTENT = #{noticeContent}
+      WHERE NOTICE_NO = #{noticeNo}
+   </update>
+
+   <update id="deleteNotice">
+      UPDATE NOTICE_BOARD
+      SET NOTICE_STATUS = 'N'
+      WHERE NOTICE_NO = #{noticeNo}
+   </update>
+   
+   <!-- portCount -->
+   <select id="getPortListCount" resultType="_int">
+      SELECT COUNT(*)
+      FROM OUR_CLASS_BOARD
+      WHERE OCB_STATUS = 'Y'
+   </select>
+   
+   <!-- portList -->
+   <select id="selectPortList" resultType="Port">
+      SELECT *
+      FROM OUR_CLASS_BOARD JOIN
+      MEMBER ON(OCB_ID = MB_ID)
+      WHERE OCB_STATUS = 'Y'
+      ORDER BY OCB_NO DESC
+   </select>
+   
+   <!-- portInsert -->
+   <insert id="insertPort">
+      INSERT INTO OUR_CLASS_BOARD
+      VALUES (SEQ_OCB_NO.NEXTVAL, #{ocbCategory}, #{ocbImage}, DEFAULT, #{ocbTitle}, #{ocbContent}, DEFAULT, #{ocbId}, DEFAULT)
+   </insert>
+   
+   <!-- portDetail -->
+   <select id="selectPortDetail" resultType="Port">
+      SELECT *
+      FROM OUR_CLASS_BOARD JOIN
+      MEMBER ON(OCB_ID = MB_ID)
+      WHERE OCB_STATUS = 'Y' AND OCB_NO = #{ocbNo}
+   </select>
+   
+   <!-- portCountUp -->
+   <update id="updateCount">
+      UPDATE OUR_CLASS_BOARD
+      SET OCB_NUM = OCB_NUM + 1
+      WHERE OCB_NO = #{ocbNo}
+   </update>
+   
+   <!-- portUpdate -->
+   <update id="updatePort">
+   	  UPDATE OUR_CLASS_BOARD
+   	  SET OCB_IMAGE = #{ocbImage}, OCB_CATEGORY = #{ocbCategory}, OCB_CONTENT = #{ocbContent}, OCB_TITLE = #{ocbTitle}, OCB_DATE = SYSDATE
+   	  WHERE OCB_NO = #{ocbNo}
+   </update>
+   
+   <!-- selectReply -->
+   <select id="selectReply" resultType="Reply">
+   	  SELECT *
+   	  FROM OUR_CLASS_REPLY JOIN
+      MEMBER ON(OCR_ID = MB_ID)
+   	  WHERE OCR_OCB_NO = #{ocbNo} AND OCR_STATUS = 'Y'
+   	  ORDER BY OCR_NO DESC
+   </select>
+   
+   <!-- insertReply -->
+   <insert id="insertReply">
+   	  INSERT INTO OUR_CLASS_REPLY
+   	  VALUES (SEQ_OCR_NO.NEXTVAL, #{ocrContent}, DEFAULT, #{ocrId}, #{ocrOcbNo}, DEFAULT)
+   </insert>
+   
+	<!-- deletePort -->
+	<update id="deletePort">
+		UPDATE OUR_CLASS_BOARD
+		SET OCB_STATUS = 'N'
+		WHERE OCB_NO = #{ocbNo}
+	</update>
+	
+	<!-- updateReply -->
+	<update id="updateReply">
+		UPDATE OUR_CLASS_REPLY
+		SET OCR_CONTENT = #{ocrContent}, OCR_DATE = SYSDATE
+		WHERE OCR_NO = #{ocrNo}
+	</update>   
+	
+	<!-- selectUpdateReply -->
+	<select id="selectUpdateReply" resultType="Reply">
+		SELECT *
+		FROM OUR_CLASS_REPLY JOIN
+     	MEMBER ON(OCR_ID = MB_ID)
+		WHERE OCR_NO = #{ocrNo} AND OCR_STATUS='Y'
+	</select>
+	
+	<!-- deleteReply -->
+	<update id="deleteReply">
+		UPDATE OUR_CLASS_REPLY
+		SET OCR_STATUS = 'N'
+		WHERE OCR_NO = #{ocrNo}
+	</update>
+  
+  
+  
+   
+</mapper>

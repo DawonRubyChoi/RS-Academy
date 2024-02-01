@@ -1,0 +1,310 @@
+@charset "UTF-8";
+
+
+html{
+	font-size : 10px;
+}
+
+ul, li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color : inherit;
+}
+
+@font-face{
+	font-family: abster;
+	src:url(../font/abster-webfont.woff) format('woff');
+}
+
+*{
+	margin :0;
+	padding : 0;
+	box-sizing:border-box;
+}
+
+
+#Application {	
+	cursor : pointer;
+	color : wheat;
+ }
+#Application:hover {	
+	background-color : rgb(246, 244, 238 );
+	color : red;
+ }
+
+#list_head {	
+	font-size: 20px;
+	text-align: center;
+	margin-left: 0px;
+	white-space:nowrap;
+}
+
+#sub_list {	
+	text-align: center;
+	margin-left: 120px;	
+	border-collapse : collapse;
+	margin-bottom: 0px;
+ }
+ 
+.list0 {
+	display: none;
+	visibility: collpase;
+}
+
+.list1 {
+	width: 100px;
+}
+.list2 {
+	width: 100px;
+}
+.list3 {
+	width: 100px;
+}
+.list4 {
+	width: 400px;
+}
+.list5 {
+	width: 208px;
+}
+.list6 {
+	width: 100px;
+}
+.list7 {
+	width: 70px;
+}
+.list8 {
+	width: 130px;
+}
+.list9 {
+	width: 150px;
+}
+
+.tr th{
+  background-color: #655345;
+  color: wheat;
+ }
+ 
+.list_btn_1 {
+	height:60px;
+	width:100px;
+	background-color:  rgb(246, 244, 238 );
+	color: black;
+	cursor:pointer;
+}
+
+.list_btn_1:hover{
+	background-color:  #655345;
+	color: rgb(246, 244, 238 );
+}
+
+
+
+
+/*게시판 목록 버튼*/
+
+.bt_wrap {
+	margin-top: 30px;
+	font-size : 0; /*목록과 수정 사이 여백 사라지게, 정확한 수치로 적용하기 위해 폰트 사이즈 0을 인라인 블럭의 부모에 적용*/
+	text-align : center; /*a태그와 그 안의 내용도 가운데 정렬(상속받기 때문에 )*/
+}
+
+
+.on {	
+	min-width: 80px; /*최소 가로 길이 : 80px*/
+	margin-left: 1px;
+	padding : 10px; /*상하 좌우 여백 10px*/
+	border : 1px #655345; /*테두리 검정*/
+	border-radius: 2px; /*2px 둥그렇게*/
+	font-size:1.4rem;
+	background : #655345;
+	color : white;
+	cursor:pointer;
+	border : 1px solid #655345;
+}
+
+.back {	
+	margin-top: 5px;
+	padding : 1px;
+	background : #655345;
+	
+}
+
+.delete {	
+	margin-top: 5px;
+	padding : 1px;
+	border : 1px #655345;
+	
+}
+
+
+.modalClose {	
+	min-width: 50px; /*최소 가로 길이 : 80px*/
+	margin-left: 1px;
+	padding : 1px; /*상하 좌우 여백 10px*/
+	border : 1px #655345; /*테두리 검정*/
+	border-radius: 2px; /*2px 둥그렇게*/
+	font-size:1.4rem;
+	background : rgba(0,0,0,0);
+	color : grey;
+	cursor:pointer;
+	border : 1px solid grey;
+}
+
+
+
+#modalOpenButton, #modalCloseButton {
+  cursor: pointer;
+}
+
+/*모달창 아래에 깔릴 화면*/
+#modalContainer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+/*띄우지 않을때는 안 보이게*/
+#modalContainer.hidden {
+  display: none;
+}
+
+
+/* 모달 창 css*/
+#modalContent {
+  position: absolute;
+  background-color: rgb(246, 244, 238 );
+  color : black;
+  width: 300px;
+  height: 130px;
+  padding: 15px;  
+  
+  
+}
+
+/*카테고리 라인*/
+
+.container{
+	width : 100%;
+	height: 100vh; /*height는 100% 적용이 되지 않음*/
+	background-color: rgb(246, 244, 238 );
+	background-size: cover;
+}
+
+.container .header{
+	width:100%;
+	height:80px;
+	margin:0 auto; /*수평기준 중앙, margin-top: 0; margin-bottom: 0;*/
+	display: flex; /*아이템 원하는 위치로*/
+	justify-content: space-between; /*요소가 좌우 끝으로 붙어서 출력되게*/
+	align-items: center;
+	background-color: #655345;
+}
+
+.container .header h1 a{
+	font-size: 2.5rem;
+	text-decoration: none;
+	color: wheat;
+	font-family: abster;
+}
+
+.container .header h1 a, 
+.container .nav ul{
+	padding-left: 80px;
+	padding-right: 30px;
+}
+
+.container .nav ul li{
+	display: inline-block;
+	margin : 0 20px;
+	list-style: none;
+}
+
+.container .nav ul li:hover{
+ 	transition-duration: 0.5s;
+}
+
+.container .nav ul li:hover .subMenu{
+	height: 120vh; /*서브메뉴 li한개의 높이 50*5*/
+ 	transition-duration: 1s;
+}
+
+.container .nav ul li a{
+	font-size: 1.5rem;
+	text-decoration: none;
+	color : wheat;
+}
+
+.container .nav ul li a:hover{
+	color: rgba(245, 222, 179, 0.9);
+}
+
+ body{
+	background-color:  rgb(246, 244, 238 );
+}
+
+/*게시판 목록*/
+
+.board_wrap {
+	width : 1500px;
+	margin : 100px auto;
+	color: #655345 ;
+	font-family: 'Noto Sans KR';
+}
+
+.board_title{
+	margin-bottom: 30px; /* 1:1 상담 밑에 30px 적용 됨 (목록/수정) 부분*/
+	font-size: 30px;
+}
+
+.board_title strong{
+	font-size: 3rem; /*rem:최상위 태그(html)의 값을 곱한 값 == 30px*/
+	font-family: 'Noto Sans KR';
+}
+
+.board_title p {
+	margin-top: 5px;
+	font-size : 1.4rem;
+}
+
+ 
+.display{width: 700px; height: 300px; border: 1px ; color: black; 
+		margin-right: 20px; margin-left: 60px;}
+
+.area1{background:  rgb(246, 244, 238 );}
+
+.display-test2{display: inline-block;}
+
+
+.classimg{
+	width:150px;
+	height:100px;
+	vertical-align: bottom;
+}
+
+.bt_wrap {
+	margin-top: 30px;
+	font-size : 0; /*목록과 수정 사이 여백 사라지게, 정확한 수치로 적용하기 위해 폰트 사이즈 0을 인라인 블럭의 부모에 적용*/
+	text-align : center; /*a태그와 그 안의 내용도 가운데 정렬(상속받기 때문에 )*/
+}
+
+.back {	
+	min-width: 110px; /*최소 가로 길이 : 80px*/
+	margin-left: 10px;
+	margin-right: 30px;
+	padding : 20px; /*상하 좌우 여백 10px*/
+	border : 1px #655345; /*테두리 검정*/
+	border-radius: 2px; /*2px 둥그렇게*/
+	font-size:1.4rem;
+	background : #655345;
+	color: wheat;
+	cursor:pointer;
+	border : 1px solid grey;
+}

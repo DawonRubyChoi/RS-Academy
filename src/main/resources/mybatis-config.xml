@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<!-- 설정 -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="jdbcTypeForNull" value="NULL" />
+	</settings>
+	
+	
+	<!--별칭-->
+	<typeAliases>
+      <typeAlias type="com.kh.rsAcademy.member.model.vo.Member" alias="Member"/>
+      <typeAlias type="com.kh.rsAcademy.member.model.vo.ClassList" alias="ClassList"/>
+      <typeAlias type="com.kh.rsAcademy.counselingboard.model.vo.CounselingBoard" alias="CounselingBoard"/>
+	  <typeAlias type="com.kh.rsAcademy.counselingboard.model.vo.CounselingReply" alias="CounselingReply"/>
+      <typeAlias type="com.kh.rsAcademy.classes.level.model.vo.LevelTest" alias="LevelTest"/>
+      <typeAlias type="com.kh.rsAcademy.notice.model.vo.Notice" alias="Notice"/>
+	  <typeAlias type="com.kh.rsAcademy.port.model.vo.Port" alias="Port"/> 
+	  <typeAlias type="com.kh.rsAcademy.port.model.vo.Reply" alias="Reply"/>
+	  <typeAlias type="com.kh.rsAcademy.classes.model.vo.Classes" alias="Classes"/>
+   </typeAliases>
+
+	<mappers>
+		<mapper resource="/mappers/jy-member-mapper.xml"/> <!--최재영 매퍼--> 
+		<mapper resource="/mappers/dw-member-mapper.xml"/> <!--최다원 매퍼-->
+		<mapper resource="/mappers/yh-classes-mapper.xml"/> <!--변윤호 매퍼-->
+		<mapper resource="/mappers/rs-classes-mapper.xml"/> <!--김로사 매퍼-->
+		<mapper resource="/mappers/hj-teacher-mapper.xml"/> <!--임화진 매퍼-->
+	</mappers>
+
+</configuration>

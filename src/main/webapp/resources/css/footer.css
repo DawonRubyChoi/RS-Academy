@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.foot {
+  height: auto;
+  bottom: 0; /* 하단에 배치 */
+  width: 100%;
+  padding: 20px;
+  background-color: #EAE5DD;
+  color: #655345;
+  font-family: 'Noto Sans KR';
+  
+}
+
+footer {
+   height: 10rem;
+   position: relative;
+   transform: translatY(-100%);
+   
+}

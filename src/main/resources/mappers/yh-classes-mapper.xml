@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="yhClassesMapper">
+	
+	<select id="seletBoardList" resultMap="classesResultSet">
+		select cl_no, cl_title, mb_name, cl_category, cl_level, cl_num, cl_startdate, cl_enddate, cl_price, cl_image
+		from classes join member on(cl_id = mb_id)
+    	where CL_STATUS = 'Y'
+    	order by CL_NO asc
+	</select>
+	
+	<resultMap type="Classes" id="classesResultSet">
+		<result property="clId" column="mb_name"/>
+	</resultMap>
+	
+	<select id="selectClass" resultMap="classesResultSet">
+		select cl_no, cl_title, mb_name, cl_category, cl_level, cl_num, cl_startdate, cl_enddate, cl_price, cl_image
+		from classes join member on(cl_id = mb_id)
+    	where CL_NO = #{ clNo } and CL_STATUS = 'Y'
+	</select>	
+	
+	<insert id="insertClass" useGeneratedKeys="true">		
+		insert into CLASSES
+		values (  SEQ_CL_NO.NEXTVAL, #{ clTitle }, #{ clStartdate }, #{ clEnddate }, #{ clLevel }, #{ clPrice }, #{ clIntro }, #{ clCategory }, #{ clNum }, default, #{ clImage }, default, #{ clId } )
+	</insert>
+	
+	<select id="updateFormClass" resultType="Classes">
+		select *
+    	from classes
+    	where CL_NO = #{ clNo }
+	</select>	
+	
+	<select id="writeClassclId" resultType="Member">
+		select *
+    	from member	
+    	where MB_ISADMIN = '2'
+	</select>
+
+
+	<select id="searchClass1" resultMap="classesResultSet">
+		select cl_no, cl_title, mb_name, cl_category, cl_level, cl_num, cl_startdate, cl_enddate, cl_price, cl_image
+		from classes join member on(cl_id = mb_id)
+    	where CL_CATEGORY = #{ ct } and CL_STATUS = 'Y'
+	</select>	
+	
+	<select id="searchClass2" resultMap="classesResultSet">
+		select cl_no, cl_title, mb_name, cl_category, cl_level, cl_num, cl_startdate, cl_enddate, cl_price, cl_image
+		from classes join member on(cl_id = mb_id)
+    	where CL_LEVEL = #{ lv } and CL_STATUS = 'Y'
+	</select>	
+
+	<select id="searchClass3" resultMap="classesResultSet">
+		select cl_no, cl_title, mb_name, cl_category, cl_level, cl_num, cl_startdate, cl_enddate, cl_price, cl_image
+		from classes join member on(cl_id = mb_id)
+    	where CL_LEVEL = #{ clLevel } and CL_CATEGORY = #{ clCategory } and CL_STATUS = 'Y'
+	</select>	
+	
+	<update id="updateClass">
+		update classes
+		set cl_title = #{clTitle}, cl_startdate = #{clStartdate}, cl_enddate = #{clEnddate}, cl_level = #{clLevel},
+			cl_price = #{clPrice}, cl_intro = #{clIntro}, cl_category = #{clCategory}, cl_num = #{clNum}, cl_image = #{clImage}, cl_id=#{clId}
+		where cl_no = #{clNo}
+	</update>
+	
+	<update id="deleteClass">
+		update classes
+		set cl_status = 'N'
+		where cl_no = #{clNo}
+	</update>
+	
+	<insert id="classApply" useGeneratedKeys="true">		
+		insert into CLASS_LIST
+		values (  SEQ_CS_NO.NEXTVAL, default, #{ csId }, #{ csCode } )
+	</insert>
+	
+	<select id="classList" resultType="ClassList">
+		select *
+		from CLASS_LIST	
+	</select>
+	
+	
+</mapper>
+

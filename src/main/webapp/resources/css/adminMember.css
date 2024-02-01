@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+*{
+   margin :0;
+   padding : 0;
+   box-sizing:border-box;
+}
+
+body{
+   font-family: 'Noto Sans KR';
+   background-color: rgb(246, 244, 238 );
+}
+.enrol {
+   margin-top : 90px;
+   margin-left: 5%;
+   text-decoration: none;
+   font-family: 'Noto Sans KR';
+}
+
+.tableInput {
+   background-color: #f5f5f5;
+   width: 150px;
+   height: 35px;
+   margin: 7px;
+   border: 1px solid #ddd;
+   line-height: 10px;
+}
+.tableLable{
+   background-color:  rgb(234,229,221);
+   margin :10px;
+   padding: 10px;
+	width: 100px;
+}
+
+.table2{
+   border-collapse: collapse;
+   font-size: 1.4rem;
+   
+}
+.table2 tr{
+   border-bottom: 1px solid #d0c2b9;
+   border-top: 1px solid #d0c2b9;
+   height: 55px;
+   font-family: sans-serif;
+   
+}
+.tabletitle{
+   font-size:2rem;
+   width: 250.27px;
+   display: inline-block;
+}
+
+.tableEnrolbutton{
+   display: inline-block; 
+    min-width: 80px; 
+    margin-left: 10px;
+    padding : 10px; 
+    border : 1px #655345; 
+    border-radius: 2px; 
+    background : #655345;
+    color : white;
+   text-align: center;
+}
+
+.tableEnrolbutton:hover{
+   cursor: pointer;
+}
+
+.tablebutton{
+   background-color:#E0E0E0;
+   display: inline-block; 
+    min-width: 80px;
+    margin-left: 10px;
+    padding : 5px; 
+     border : 1px solid #dedee2;
+    border-radius: 2px; 
+    font-size:1.4rem;
+}
+
+.tablebutton:hover{
+   cursor: pointer;
+}
+
+
+.tableRadio{
+   margin: 10px;
+}
+
+.test{
+   text-align: center;
+   border: 0px solid black;
+}
+.testbutton{
+   right: 1px;
+}
+
+

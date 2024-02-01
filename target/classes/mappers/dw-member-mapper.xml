@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dwMemberMapper">
+
+   <select id="logIn" resultType="Member">
+      select *
+      from member
+      where MB_ID = #{mbId} and MB_STATUS = 'Y'
+   </select>
+   
+   <select id="counselingListCount" resultType="_int">
+         select count(*)
+         from COUNSELING_BOARD
+         where cb_status = 'Y'
+         order by cb_no desc
+   </select>
+   
+   <select id="counselingBoardList" resultType="CounselingBoard">
+         select *
+         from COUNSELING_BOARD
+             join member on(cb_id = mb_id)
+         where cb_status = 'Y'
+         order by cb_no desc
+   </select>
+   
+   <insert id="writeCounselingBoard" useGeneratedKeys="true">
+         <selectKey resultType="_int" keyProperty="cbNo" order="BEFORE">
+           select SEQ_CB_NO.nextval FROM dual
+         </selectKey>
+      insert into COUNSELING_BOARD
+      values (#{cbNo}, #{cbContent}, #{cbTitle}, sysdate, default, default, #{mbName})
+   </insert>   
+   
+   <update id="updateCount">
+      update COUNSELING_BOARD
+      set CB_NUM = CB_NUM + 1
+      where CB_NO = #{cbNo}
+   </update>
+   
+   <select id="counselingDetail" resultType="CounselingBoard">
+         select *
+         from COUNSELING_BOARD
+            join MEMBER on(CB_ID = MB_ID)
+         where CB_NO = #{cbNo}
+   </select>
+   
+   <select id="updateCounselingBoard" resultType="CounselingBoard">
+         select *
+         from COUNSELING_BOARD
+            join MEMBER on(CB_ID = MB_ID)
+         where CB_NO = #{cbNo}
+   </select>
+   
+   <update id="editCounselingBoard">
+         update COUNSELING_BOARD
+      set CB_TITLE= #{cbTitle} , CB_CONTENT = #{cbContent}, CB_DATE = sysdate
+      where CB_NO = #{cbNo}
+   </update>
+   
+   <update id="deleteCounselingBoard">
+         update COUNSELING_BOARD
+         set CB_STATUS = 'N'
+      where CB_NO = #{cbNo}
+   </update>
+   
+   <select id="findId" resultType="Member">
+         select *
+         from MEMBER
+         where MB_NAME=#{mbName} AND MB_EMAIL=#{mbEmail}
+   </select>
+   
+   <select id="findPwd" resultType="Member">
+         SELECT *
+      FROM MEMBER
+      WHERE MB_ID = #{mbId} AND MB_EMAIL = #{mbEmail}
+   </select>
+   
+    <insert id="replyCounselingBoard">
+      insert into COUNSELING_REPLY
+      values ( SEQ_CR_NO.nextval, #{crContent}, sysdate, #{crCbNo}, default, #{crId})
+   </insert>  
+   
+   <select id="replyDetail" resultType="CounselingReply">
+         select *
+         from COUNSELING_REPLY
+            join MEMBER on(CR_ID = MB_ID)
+         where CR_CB_NO = #{crCbNo} AND CR_STATUS = 'Y'
+   </select>
+   
+    <select id="replyEdit" resultType="CounselingReply">
+         select *
+         from COUNSELING_REPLY
+         where CR_CB_NO = #{crCbNo} 
+   </select>
+   
+   <update id="counselingReplyEdit">
+         update COUNSELING_REPLY
+      set CR_CONTENT= #{crContent}, CR_DATE = sysdate
+      where CR_CB_NO = #{crCbNo}
+   </update>
+   
+   <select id="counselingDetail2" resultType="CounselingBoard">
+         select *
+         from COUNSELING_BOARD
+          join member on(cb_id = mb_id)
+         where CB_NO = #{cbNo}
+   </select>
+   
+   <update id="replyDelete">
+         update COUNSELING_REPLY
+         set CR_STATUS = 'N'
+      where CR_CB_NO = #{crCbNo}
+   </update>
+   
+</mapper>

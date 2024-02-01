@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="jyMemberMapper">
+
+	<select id="selectMember" resultType="Member">
+		select *
+		from member
+		where
+		MB_ID = #{string} and MB_STATUS='Y'
+	</select>
+
+	<select id="idCheck" resultType="_int">
+		select count(*)
+		from member
+		where
+		MB_ID = #{id} and MB_STATUS='Y'
+	</select>
+
+	<insert id="enroll">
+		insert into member
+		values
+		(#{mbId},#{mbPwd},#{mbName},#{mbEmail},#{mbBirth},#{mbTel},#{mbIsAdmin},#{mbLevel},default,#{mbAddress})
+	</insert>
+
+	<select id="selectClassList" resultType="ClassList">
+		SELECT *
+		FROM class_list cl
+		JOIN classes ot ON cl.cs_code = ot.cl_no
+		WHERE cl.cs_id = #{mbId}
+	</select>
+	
+	<update id="classCancle">
+		update class_list
+		set CS_STATUS = #{CsStatus}	
+		where CS_ID = #{Id} and CS_CODE = #{CsCode}
+	</update>
+	
+	<update id="updateMember">
+		update member
+		set MB_PWD=#{mbPwd}, MB_NAME=#{mbName},MB_EMAIL=#{mbEmail},MB_BIRTH=#{mbBirth},
+		MB_TEL=#{mbTel},MB_ADDRESS=#{mbAddress}
+		where MB_ID=#{mbId}
+	</update>
+	
+	<update id="deleteMember">
+		update member
+		set MB_STATUS='N'
+		where MB_ID=#{id}
+	</update>
+	
+	<select id="memberList" resultType="Member">
+		select *
+		from member
+	</select>
+	
+	<select id="allClassList" resultType="ClassList">
+		SELECT *
+		FROM class_list cl
+		JOIN classes ot ON cl.cs_code = ot.cl_no
+	</select>
+	
+	<update id="adminUpdateMember">
+		update member
+		set MB_NAME=#{mbName},MB_EMAIL=#{mbEmail},MB_STATUS=#{mbStatus}
+		where MB_ID=#{mbId}
+	</update>
+	
+	<update id="adminUpdateClassList">
+		update class_list
+		set CS_STATUS=#{csStatus}
+		where CS_NO=#{csNo}
+	</update>
+	
+	<update id="tempPwd">
+		update member
+		set mb_pwd=#{mbPwd}
+		where MB_ID=#{mbId}
+	</update>
+
+</mapper>
+

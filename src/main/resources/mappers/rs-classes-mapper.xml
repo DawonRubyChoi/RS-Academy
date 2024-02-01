@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="rsClassesMapper">
+
+   <select id="getListCount" resultType="_int">
+      select count(*)
+      from level_test
+      where lt_status = 'Y'
+   </select>
+   
+   <select id="selectList" resultType="LevelTest">
+      SELECT *
+      FROM LEVEL_TEST
+      where lt_status = 'Y'
+      ORDER BY DBMS_RANDOM.VALUE
+      FETCH FIRST 20 ROWS ONLY
+   </select>
+
+   <select id="selectAllList" resultType="LevelTest">
+      select *
+      from level_test
+      where lt_status = 'Y'
+      order by lt_No
+   </select>
+   
+   <insert id="insertLevelTest">
+      insert into level_test
+      values(seq_lt_no.nextval, #{ltTitle}, #{ltNo1}, #{ltNo2}, #{ltNo3}, #{ltNo4},
+             #{ltAnswer}, default)
+   </insert>
+   
+   <select id="selectLevelTest" resultType="LevelTest">
+      select *
+      from level_test
+      where lt_status = 'Y' and lt_no = #{ltNo}
+   </select>
+   
+   <update id="updateLevelTest">
+      update level_test
+      set lt_title = #{ltTitle}, lt_no1 = #{ltNo1}, lt_no2 = #{ltNo2},
+         lt_no3 = #{ltNo3}, lt_no4 = #{ltNo4}, lt_answer = #{ltAnswer}
+      where lt_no = #{ltNo}
+   </update>
+   
+   <update id="deleteLevelTest">
+      update level_test
+      set lt_status = 'N'
+      where lt_no in
+         <foreach collection="array" item="ltNo" open="(" close=")" separator=",">
+            #{ltNo}
+         </foreach>
+   </update>
+   
+
+   <select id="getSearchListCount" resultType="_int">
+      select count(*)
+      from level_test
+      where lt_status= 'Y' and (lt_title like '%'||#{search}||'%' OR
+                          lt_no1 like '%'||#{search}||'%' OR
+                          lt_no2 like '%'||#{search}||'%' OR
+                          lt_no3 like '%'||#{search}||'%' OR
+                          lt_no4 like '%'||#{search}||'%')
+   </select>
+   
+   <select id="searchLevelTest" resultType="LevelTest">
+      select *
+      from level_test
+      where lt_status= 'Y' and (lt_title like '%'||#{search}||'%' OR
+                          lt_no1 like '%'||#{search}||'%' OR
+                          lt_no2 like '%'||#{search}||'%' OR
+                          lt_no3 like '%'||#{search}||'%' OR
+                          lt_no4 like '%'||#{search}||'%')
+      order by lt_no
+   </select>
+
+   <update id="updateMemberLevel">
+      update member
+      set mb_level = #{mbLevel}
+      where mb_id = #{mbId}
+   </update>
+   
+   <select id="selectClassesList" resultType="Classes">
+   	select *
+   	from classes
+   </select>
+   
+</mapper>

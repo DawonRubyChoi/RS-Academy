@@ -1,0 +1,314 @@
+@charset "UTF-8";
+ /* 보드랩 가로 1000px 위 아래 100px , 양쪽은 가운데 정렬*/
+*{
+   font-family: 'Noto Sans KR'; color:  #655345;
+}
+
+.levelTestExplanation{
+   margin: 0 auto; 
+   font-family: 'Noto Sans KR';
+   margin-left: 25%; 
+   margin-right: 25%; 
+   text-align: center; 
+   color: #655345;
+   margin-top: 130px; 
+   margin-bottom: 130px; 
+   padding-bottom: 162px; 
+   padding-top: 162px;
+}
+.levelTestExplanation #title{
+   font-size: 2rem; 
+   border-bottom: solid 1px #655345; 
+   border-top: solid 1px #655345; 
+   padding: 12px; 
+   background: rgb(234 229 221);
+}
+.levelTestExplanation p{
+   font-size: 1.4rem;
+   line-height: 30px; 
+   margin-top: 50px; 
+   margin-bottom: 50px;
+}
+   
+.levelTest h2{
+   text-align: center; 
+   font-size: 2rem; 
+   margin-bottom: 20px; 
+   font-weight: bolder; 
+   background: rgb(234 229 221);
+}
+
+.levelTest{
+   border: 1px solid  #655345; 
+   margin-left: 25%; 
+   margin-right: 25%; 
+   padding: 50px; 
+   margin-top: 5%; 
+   margin-bottom: 5%;
+}
+
+.levelTest table{
+   font-size: 1.4rem; 
+   width:100%; 
+   padding-bottom: 30px; 
+   border-spacing : 5px; 
+   text-align: left;
+}
+
+.levelTest th{
+   border-top: 1px solid #655345; 
+   border-bottom: 1px solid #655345; 
+   line-height: 27px; 
+   background: rgb(234 229 221);
+}
+
+.levelTest table td:first-child{
+   width: 10px;
+}
+
+.levelTest #submit{
+   display: inline-block; 
+   min-width: 80px; 
+   margin-left: 10px; 
+   padding : 10px; 
+   border : 1px #655345;
+   border-radius: 2px; 
+   font-size:1.4rem; 
+   background : #655345; 
+   color : white; 
+   cursor: pointer;}
+   
+.levelTest .on_1{
+   cursor: pointer;
+}
+   
+.levelTestResult{
+   margin-left: 25%; 
+   margin-right: 25%; 
+   margin-top: 130px; 
+   margin-bottom: 130px; 
+   padding-bottom: 162px; 
+   padding-top: 162px;
+   text-align: center; 
+   font-family: 'Noto Sans KR'; 
+   color: #655345;
+}
+
+.levelTestResult #result{
+   font-size: 2rem; 
+   font-weight: bold; 
+   border-bottom: solid 1px #655345; 
+   padding: 40px;
+}
+
+.levelTestResult table{
+   width:100%; 
+   padding-top: 30px;
+}
+
+.levelTestResult img{
+   width: 150px;
+   height: 110px;
+}
+
+.levelTestResult #title{
+   font-size: 2rem; 
+   border-bottom: solid 1px #655345; 
+   border-top: solid 1px #655345; 
+   padding: 12px; 
+   background: rgb(234 229 221);
+}
+
+.levelTestResult #td1{
+   font-size: 2rem;
+   text-align: left; 
+   padding-left: 10px;
+}
+
+.levelTestResult #td2{
+   text-align: left; 
+   font-size: 1.4rem; 
+   padding-left: 10px; 
+   padding-bottom: 5px;
+}
+
+.#levelTestResult .td3{
+   width:25%;
+   }
+
+.levelTestResult td{
+   font-size: 1.6rem; 
+   line-height: 28px;
+}
+
+
+.levelTestManagement{
+   margin-left: 25%; 
+   margin-right: 25%; 
+   margin-top: 8%; 
+   margin-bottom: 8%; 
+}
+
+.levelTestManagement #title{
+   text-align: center; 
+   font-size: 2.6rem; 
+   border-bottom: solid 1px #655345; 
+   border-top: solid 1px #655345; 
+   padding: 12px; 
+   background: rgb(234 229 221);
+}
+
+.levelTestManagement #levelMenu{
+   text-align: center; 
+   margin: 25px;
+}
+
+.levelTestManagement .levelMenu{
+   width: 20%; 
+   height: 50px; 
+   margin:10px; 
+   margin-top:10px; 
+   margin-bottom:20px;
+   line-height: 60px; 
+   font-size: 1.7rem; 
+   text-align: center;
+   display: inline-block; 
+   border-bottom: solid 1px #655345; 
+   cursor: pointer; 
+}
+
+.levelTestManagement input[type="search"]{
+   width: 90px;
+}
+
+.levelTestManagement #search{
+   text-align: left; 
+   display: inline-block;
+}
+
+.levelTestManagement #updateDelete{
+   text-align: right; 
+   display: inline-block; 
+   float: right;
+}
+.levelTestManagement table{
+   font-size: 1.4rem; 
+   width:100%; 
+   padding-bottom: 30px; 
+   border-spacing : 5px; 
+   text-align: left;
+}
+
+.levelTestManagement #selectLevelTest table td:first-child{
+   width: 10px;
+}
+.levelTestManagement #selectLevelTest th{
+   border-top: 1px solid #655345; 
+   border-bottom: 1px solid #655345; 
+   line-height: 27px;
+}
+.levelTestManagement #submit{
+   display: inline-block; 
+   min-width: 80px;
+   margin-left: 10px; 
+   padding : 10px; 
+   border : 1px #655345;
+   border-radius: 2px; 
+   font-size:1.4rem; 
+   margin-left : 0;
+   background : #655345; 
+   color : white; 
+   cursor: pointer;
+}
+   
+.levelTestManagement #addLevelTest{
+   display:none; 
+   width: 75%; 
+   margin: 0 auto;
+}
+.levelTestManagement #addLevelTest table td:first-child{
+   width: 30px;
+}
+.levelTestManagement #addLevelTest table{
+   line-height: 40px;
+}
+   
+.levelTestManagement #addLevelTest input[type="text"]{
+   width: 100%;
+}
+.levelTestManagement #td2{
+   border-bottom: solid 1px #655345; 
+   padding-bottom: 20px;
+}
+.levelTestManagement #td3{
+   padding-top: 10px;
+}
+.levelTestManagement #correctAnswer {
+   inline-block; float: right;
+}
+   
+.levelTestManagement .pagination {
+   text-align: center;
+}
+
+.levelTestManagement .pagination a {
+   font-size: 1.4rem; 
+   color: #655345;  
+   padding: 8px 16px; 
+}
+   
+.levelTestManagement button{
+   background : #655345; 
+   color : white; 
+   padding-left:10px; 
+   padding-right:10px; 
+   padding-top: 2.5px; 
+   padding-bottom: 2.5px;
+   border-radius: 2px; 
+   border: none; 
+   outline: none;
+   cursor: pointer;
+}
+         
+.updateLevelTest #submit{
+   display: inline-block; 
+   min-width: 80px;
+   padding : 10px; 
+   border : 1px #655345; 
+   margin-left: 10px;
+   border-radius: 2px; 
+   font-size:1.4rem; 
+   margin-left : 0;
+   background : #655345; 
+   color : white;
+   cursor: pointer;
+}
+.updateLevelTest{
+   margin-left: 25%; 
+   margin-right: 25%; 
+   margin-top: 8%; 
+   margin-bottom: 8%; 
+   font-size: 1.4rem;
+}
+.updateLevelTest table td:first-child{
+   width: 30px;
+}
+
+.updateLevelTest table{
+   line-height: 40px;
+   margin: 0 auto;
+}
+.updateLevelTest input[type="text"]{
+   width: 100%;
+}
+.updateLevelTest #td2{
+   border-bottom: solid 1px #655345; 
+   padding-bottom: 20px;
+}
+.updateLevelTest #td3{
+   padding-top: 10px;
+}
+.updateLevelTest #correctAnswer {
+   display: inline-block; 
+   float: right;
+}

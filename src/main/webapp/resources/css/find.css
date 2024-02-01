@@ -1,0 +1,236 @@
+@charset "UTF-8";
+ /* 보드랩 가로 1000px 위 아래 100px , 양쪽은 가운데 정렬*/
+*{
+   margin : 0;
+   padding : 0;
+}
+
+html{
+   font-size : 10px;
+}
+
+ul, li {
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   color : inherit;
+}
+
+@font-face{
+   font-family: abster;
+   src:url(../font/abster-webfont.woff) format('woff');
+}
+*{
+   margin :0;
+   padding : 0;
+   box-sizing:border-box;
+}
+
+.container{
+   width : 100%;
+   height: 100vh; /*height는 100% 적용이 되지 않음*/
+   background-color: rgb(246, 244, 238 );
+   background-size: cover;
+}
+
+.container .header{
+   width:100%;
+   height:80px;
+   margin:0 auto; /*수평기준 중앙, margin-top: 0; margin-bottom: 0;*/
+   display: flex; /*아이템 원하는 위치로*/
+   justify-content: space-between; /*요소가 좌우 끝으로 붙어서 출력되게*/
+   align-items: center;
+   background-color: #655345;
+}
+
+.container .header h1 a{
+   font-size: 2.5rem;
+   text-decoration: none;
+   color: wheat;
+   font-family: abster;
+}
+
+.container .header h1 a, 
+.container .nav ul{
+   padding-left: 80px;
+   padding-right: 30px;
+}
+
+.container .nav ul li{
+   display: inline-block;
+   margin : 0 20px;
+   list-style: none;
+}
+
+.container .nav ul li:hover{
+    transition-duration: 0.5s;
+}
+
+.container .nav ul li:hover .subMenu{
+   height: 120vh; /*서브메뉴 li한개의 높이 50*5*/
+    transition-duration: 1s;
+}
+
+.container .nav ul li a{
+   font-size: 1.5rem;
+   text-decoration: none;
+   color : wheat;
+}
+
+.container .nav ul li a:hover{
+   color: rgba(245, 222, 179, 0.9);
+}
+
+ body{
+   background-color:  rgb(246, 244, 238 );
+}
+
+.subMenu {
+  height: 0; /*ul의 높이를 안보이게 처리*/
+  right:0;
+  
+  overflow: hidden;
+  position: fixed;
+}
+
+.subMenu li {
+  width: 45%;
+  line-height: 50px;
+  right: 30%;
+  background-color: rgba(101, 83, 69, 0.5);
+  text-align: center;
+}
+
+.find-wrap{
+   margin : 120px auto;
+   font-family: 'Noto Sans KR';
+   color:#655345;
+   position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    width: 460px;
+}
+
+.find-wrap h2 {
+   left:100%;
+   padding-bottom: 50px;
+   font-size: 3rem;
+   width : 1000px;
+}
+
+.find-info{
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+   width: 450px;
+}
+
+.find-info dl {
+   min-width: 100%;
+   padding-bottom: 10px;
+}
+
+.find-info dt {
+   width: 100%;
+   font-size: 1.2rem;
+   padding-bottom: 3px;
+}
+
+
+.find-info .find-email {
+   width : 80%;
+   margin-right: 5px;
+}
+
+.find-info .code{
+   margin-bottom: 30px;
+   width:80%;
+}
+
+.find-info .code-bt{
+   display: inline-block;
+   border-radius: 2px; 
+   font-size:1.2rem;
+   color: dimgray;
+   cursor: pointer;
+}
+
+.code-bt .mail-check-input{
+   display: inline-block;
+   text-align: center;
+   font-size:1.3rem;
+   background-color: rgba(0,0,0,0);
+   border : 1px solid #ddd;
+   color : grey;
+   cursor: pointer;
+   padding : 10px;
+   margin-bottom: 5px;
+   border-radius: 2px; 
+   font-family: 'Noto Sans KR';
+}
+
+.find-info dd input{
+   padding : 10px;
+   width: 80%;
+   max-width: 100%;
+   box-sizing: border-box;
+   background-color: #f5f5f5;
+   border: 1px solid #ddd;
+}
+
+.find-info .check-bt{
+	margin-left: 100px;
+}
+
+.find-info .check-bt .confirm{
+   display: inline-block;
+   width: 20%;
+   padding : 10px;
+   border : 1px #655345; 
+   border-radius: 2px; 
+   text-align: center;
+   font-size:1.4rem;
+   background-color: #655345;
+   color:#ddd;
+   cursor: pointer;
+   margin-right: 10px;
+   font-family: 'Noto Sans KR';
+}
+
+.find-info .check-bt .cancel{
+   display: inline-block;
+   padding : 10px;
+   border-radius: 2px; 
+   text-align: center;
+   font-size:1.4rem;
+   background-color: rgba(0,0,0,0);
+   border : 1px solid #ddd;
+   color : grey;
+   cursor: pointer;
+   
+}
+
+
+.result-wrap{
+   margin : 150px auto;
+   font-family: 'Noto Sans KR';
+   color:#655345;
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+   width: 460px;
+}
+
+.result-wrap h2 {
+   left:100%;
+   padding-bottom: 50px;
+   font-size: 3rem;
+   width : 1000px;
+}
+
+.result-wrap p {
+	font-size: 1.5rem;
+	display: inline;
+}
